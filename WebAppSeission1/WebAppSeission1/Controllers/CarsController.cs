@@ -22,7 +22,7 @@ namespace WebAppSeission1.Controllers
         {
             using (CarsDBEntities _entities = new CarsDBEntities())
             {
-                var car = _entities.Cars.FirstOrDefault(c => c.id == ID);
+                var car = _entities.Cars.FirstOrDefault(c => c.Id == ID);
                 if (car == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "This (ID) not Found");
@@ -33,11 +33,22 @@ namespace WebAppSeission1.Controllers
                 }
             }
         }
-        public Car Post(Car car)
+        public HttpResponseMessage Post(Car car)
         {
             using (CarsDBEntities _entities = new CarsDBEntities())
             {
-                return _entities.Cars.Add(car);
+                try
+                {
+                    _entities.Cars.Add(car);
+                    _entities.SaveChanges();
+                    var msg = Request.CreateResponse(HttpStatusCode.Created, car);
+                    msg.Headers.Location = new Uri(Request.RequestUri +""+car.Id);
+                    return msg;
+                }
+                catch(Exception ex)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                }
             }
         }
 

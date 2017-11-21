@@ -14,7 +14,7 @@ namespace DataAccess
     
     public partial class Car
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<int> ModelYear { get; set; }
         public string Color { get; set; }
