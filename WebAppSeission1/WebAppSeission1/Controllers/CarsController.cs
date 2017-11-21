@@ -84,16 +84,21 @@ namespace WebAppSeission1.Controllers
         {
             using (CarsDBEntities _entities = new CarsDBEntities())
             {
-                var myCar = _entities.Cars.FirstOrDefault(c => c.Id == ID);
                 try
                 {
-                    myCar.Name = car.Name;
-                    myCar.ModelYear = car.ModelYear;
-                    myCar.Color = car.Color;
-                    _entities.SaveChanges();
-                    var msg = Request.CreateResponse(HttpStatusCode.Created, car);
-                    msg.Headers.Location = new Uri(Request.RequestUri + "" + car.Id);
-                    return msg;
+                var myCar = _entities.Cars.FirstOrDefault(c => c.Id == ID);
+                    if (myCar == null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, " the ID not Found");
+                    }
+                    else
+                    {
+                        myCar.Name = car.Name;
+                        myCar.ModelYear = car.ModelYear;
+                        myCar.Color = car.Color;
+                        _entities.SaveChanges();
+                        return Request.CreateResponse(HttpStatusCode.OK, myCar);
+                    }
                 }
                 catch(Exception ex)
                 {
