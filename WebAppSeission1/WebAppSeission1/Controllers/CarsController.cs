@@ -33,6 +33,16 @@ namespace WebAppSeission1.Controllers
                 }
             }
         }
+        /*public Car Post(Car car)
+        {
+            using (CarsDBEntities _entities = new CarsDBEntities())
+            {
+                _entities.Cars.Add(car);
+                _entities.SaveChanges();
+                return car;
+            }
+        }
+        */
         public HttpResponseMessage Post(Car car)
         {
             using (CarsDBEntities _entities = new CarsDBEntities())
