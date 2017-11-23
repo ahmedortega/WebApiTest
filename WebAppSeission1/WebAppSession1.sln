@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppSeission1", "WebAppSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{CA5D7710-0991-4280-ACBA-31AF6B041E87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserDAM", "UserDAM\UserDAM.csproj", "{7ECDF4F7-2E99-4CCB-9DF4-3841B45132D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CA5D7710-0991-4280-ACBA-31AF6B041E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5D7710-0991-4280-ACBA-31AF6B041E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5D7710-0991-4280-ACBA-31AF6B041E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ECDF4F7-2E99-4CCB-9DF4-3841B45132D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECDF4F7-2E99-4CCB-9DF4-3841B45132D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECDF4F7-2E99-4CCB-9DF4-3841B45132D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECDF4F7-2E99-4CCB-9DF4-3841B45132D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
