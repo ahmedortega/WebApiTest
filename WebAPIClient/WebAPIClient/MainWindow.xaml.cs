@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,19 @@ namespace WebAPIClient
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+        private void RetrieveData()
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("localhost/WebAppSeission1/");
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync("api/users").Result;
+            if(response.IsSuccessStatusCode)
+            {
+                var users = response.Content.ReadAsAsync<IEnumerable<Users>>().Result;
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
