@@ -157,7 +157,22 @@ namespace WebAPIClient
 
         private void Button_Delete_User(object sender, RoutedEventArgs e)
         {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost/WebAppSeission1/");
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
+            var id = txtSearch.Text.Trim();
+            var url = "api/users/" + id;
+            HttpResponseMessage response = client.DeleteAsync(url).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("User Deleted");
+                RetrieveUsers();
+            }
+            else
+            {
+                MessageBox.Show(response.StatusCode + " With this Message " + response.ReasonPhrase);
+            }
         }
 
         private void Button_Show_All_Users(object sender, RoutedEventArgs e)
