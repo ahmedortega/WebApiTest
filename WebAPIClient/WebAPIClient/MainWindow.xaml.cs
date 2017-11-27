@@ -184,5 +184,34 @@ namespace WebAPIClient
         {
             RetrieveCars();
         }
+
+        private void Button_update(object sender, RoutedEventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost/WebAppSeission1/");
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var user = new Users();
+            user.FirstName = txtFname.Text.Trim();
+            user.LastName = txtLname.Text.Trim();
+            user.PhoneNo = txtPhone.Text.Trim();
+            user.Email = txtEmail.Text.Trim();
+            user.Company = txtCompany.Text.Trim();
+
+            var id = txtSearch.Text.Trim();
+            var url = "api/Users/" + id;
+
+            var response = client.PutAsJsonAsync(url, user).Result;
+            if(response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("User is Updated <3 ");
+                clearTexts();
+                RetrieveUsers();
+            }
+            else
+            {
+                MessageBox.Show(response.StatusCode + " With this Message " + response.ReasonPhrase);
+            }
+        }
     }
 }
