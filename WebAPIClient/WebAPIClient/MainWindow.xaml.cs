@@ -29,13 +29,19 @@ namespace WebAPIClient
         private void RetrieveData()
         {
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("localhost/WebAppSeission1/");
+            client.BaseAddress = new Uri("http://localhost/WebAppSeission1/");
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             HttpResponseMessage response = client.GetAsync("api/users").Result;
             if(response.IsSuccessStatusCode)
             {
                 var users = response.Content.ReadAsAsync<IEnumerable<Users>>().Result;
+                usergrid.ItemsSource = users;
+                
+            }
+            else
+            {
+                MessageBox.Show(response.StatusCode + " with this meesage :" + response.ReasonPhrase);
             }
         }
 
@@ -67,6 +73,16 @@ namespace WebAPIClient
         private void TextBox_TextChanged_3(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            RetrieveData();
         }
     }
 }
