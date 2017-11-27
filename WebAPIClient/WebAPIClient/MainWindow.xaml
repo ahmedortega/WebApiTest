@@ -16,15 +16,16 @@
         <Label Content="Last Name" HorizontalAlignment="Left" Margin="407,356,0,0" VerticalAlignment="Top"/>
         <Label Content="Email Address" HorizontalAlignment="Left" Margin="407,410,0,0" VerticalAlignment="Top"/>
         <Button Content="Upload" HorizontalAlignment="Left" Margin="754,512,0,0" VerticalAlignment="Top" Width="84" Height="31"/>
-        <Button Content="Add User" HorizontalAlignment="Left" Margin="416,518,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="Show all" HorizontalAlignment="Left" Margin="721,295,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <Button Content="Search" HorizontalAlignment="Left" Margin="193,536,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="193,581,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Add User" HorizontalAlignment="Left" Margin="416,518,0,0" VerticalAlignment="Top" Width="75" Click="Button_AddUser"/>
+        <Button Content="show all Users" HorizontalAlignment="Left" Margin="715,295,0,0" VerticalAlignment="Top" Width="81" Click="Button_Show_All_Users"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="193,536,0,0" VerticalAlignment="Top" Width="75" Click="Button_Search_User"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="193,581,0,0" VerticalAlignment="Top" Width="75" Click="Button_Delete_User"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="131,475,0,0" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
         <Label Content="Phone" HorizontalAlignment="Left" Margin="40,472,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="40,533,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_3"/>
+        <TextBox Name="txtSearch" HorizontalAlignment="Left" Height="23" Margin="40,533,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_3"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="40,581,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <DataGrid Name="usergrid" HorizontalAlignment="Left" Height="292" Margin="27,23,0,0" VerticalAlignment="Top" Width="652" SelectionChanged="DataGrid_SelectionChanged"/>
+        <Button Content="Show all Cars" HorizontalAlignment="Left" Margin="715,329,0,0" VerticalAlignment="Top" Width="81" Click="Button_Show_all_Cars"/>
 
     </Grid>
 </Window>
